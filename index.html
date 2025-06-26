@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graduation Letter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="content">
+    <div class="header">
+      <div class="header-left">
+        <img src="School_logo.png" alt="School Logo">
+      </div>
+      <div class="header-right">
+        <br><strong>Thika Road, Ruaraka</strong>
+        <br>P.O. Box 56808-00200 Nairobi Kenya
+        <br><strong>Pilot Line:</strong> +254208070408/9
+        <br></br><strong>Tel:</strong> +254 20 3537847
+        <br><strong>Fax:</strong> +254 20 8561077
+        <br><strong>Mobile:</strong> +254 734 888022, 710 888022
+        <br><strong>Email:</strong> kca@kca.ac.ke
+        <br><strong>Website:</strong> www.kca.ac.ke
+      </div>
+    </div>
+    <div class="main-title">OFFICE OF THE REGISTRAR, ACADEMIC AFFAIRS</div>
+
+    <div class="first-divider"></div>
+
+
+    <div class="letter-details">
+      <div class="letter-line"><strong>To</strong> <span>:Lenox Boyd Otieno</span></div>
+      <div class="letter-line"><strong>From</strong> <span>:Registrar, Academic Affairs</span></div>
+      <div class="letter-line"><strong>Date</strong> <span>:25th June 2025</span></div>
+      <div class="letter-line"><strong>Subject</strong> <span>:Confirmation of Graduation</span></div>
+
+    </div>
+
+    <div class="second-divider"></div>
+
+    <div class="body-text">
+      On behalf of the Academic Committee and the entire faculty, it is with great pleasure that we formally notify you of the successful completion of all academic and institutional requirements pertaining to the conferment of your Certificate in Accounting.
+
+      Following a review and verification of your academic record, you have been deemed fully eligible to participate in the upcoming graduation ceremony, scheduled to be held on <strong>5th December 2025</strong>.
+
+      Please take note of the following important instructions to facilitate your graduation process:
+      <ol>
+        <li>You are required to complete all departmental and financial clearances by <strong>15th October 2025</strong>.</li>
+        <li>The official academic regalia (gown, cap, and hood) shall be available for collection from <strong>19th November 2025</strong> at KCA Main Campus, Hall C.</li>
+        <li>A mandatory graduation rehearsal has been scheduled for <strong>1st December 2025</strong>.</li>
+      </ol>
+
+      Please be advised that participation in the graduation ceremony is contingent upon the fulfillment of all departmental and financial clearance and the timely collection of graduation attire.
+
+      The institution extends its heartfelt congratulations to you for your dedication and commendable achievement. We are honored to celebrate this academic milestone with you.<br>
+      Should you require any further clarification, please contact the Academic Registrar’s office.
+
+      
+    </div>
+
+    <div class="closing">
+      <p>Kindly plan accordingly.</p>
+      <p>Thank you,</p>
+    </div>
+
+    <div class="signature">
+      <img src="signature2.jpg" alt="Signature">
+      <div class="signatory-name">Dr. Rose Gathii (Ph.D)</div>
+      <div class="signatory-title">Registrar, Academic Affairs</div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Cc:</strong> Vice Chancellor & CEO</p>
+      DVC-ASA, DVC-FPD, DVC-RIO<br>
+      Deans/Directors/CoDs/Managers.
+    </div>
+  </div>
+  <button id="downloadBtn" onclick="downloadPDF()">Download PDF</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+  async function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const btn = document.getElementById('downloadBtn');
+    btn.style.display = 'none';
+
+    const element = document.querySelector(".content");
+
+    const canvas = await html2canvas(element, {
+      scale: 2,
+      useCORS: true
+    });
+
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'pt', 'a4');
+
+    const imgProps = pdf.getImageProperties(imgData);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save('Graduation_Confirmation_Letter.pdf');
+
+    btn.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

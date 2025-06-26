@@ -1,0 +1,178 @@
+
+   .content {
+  width: 800px; /* Adjust width: try 700px, 800px, or 900px */
+  margin: 0 auto;   /* This centers the content horizontally */
+  padding: 40px;    /* Adds inner space on both sides */
+  box-sizing: border-box;
+}
+ 
+    
+    body {
+      width: 80%;
+      margin: 0;
+      font-family: Calibri, Arial, sans-serif;
+      background-color: white;
+      padding: 0;
+    }
+
+    .body-text::before {
+  content: "";
+  position: absolute;
+  top: 36%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background-image: url('watermark.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+}
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .header-left img {
+    width: 150px;
+  }
+
+  .header-right {
+    text-align: left;
+    font-size: 12px;
+    color: #0757a7;
+    line-height: 1.5;
+  }
+
+  .first-divider {
+    border-bottom: 4px solid #d7b23a;
+    margin-top:0;
+    margin-left: 30px;
+  }
+
+  .second-divider {
+    border-bottom: 4px solid #0a0b0b;
+    margin-top:0;
+  }
+
+  .main-title {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 900;
+    font-size: 19px;
+    color: #123d68;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-bottom: 5px; /* Keeps text from touching the line */
+    margin-bottom: 0; 
+  }
+
+  .letter-details {
+    font-size: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 2px;
+    line-height: 2;
+    margin-top: 20px;
+  }
+
+  .letter-details span {
+    font-weight: bold;
+  }
+
+  .letter-line {
+display: flex;
+margin-bottom: 12px; /* Space between lines */
+}
+
+.letter-line strong {
+width: 80px; /* You can adjust this */
+}
+
+.letter-line span {
+flex: 1;
+}
+
+
+  .subject {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .body-text {
+    font-weight: 540;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+    margin-top: 10px;
+    position: relative;
+  }
+
+  .body-text ol {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .body-text li {
+    margin-bottom: 10px;
+  }
+
+  .closing {
+    margin-top: 30px;
+    font-size: 14px;
+  }
+
+  .signature {
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+
+  .signature img {
+    width: 150px;
+    filter: contrast(250%) brightness(100%);
+    margin-left: -30px;
+  }
+
+  .signatory-name {
+    margin-top: 5px;
+  }
+
+  .signatory-title {
+    font-weight: bold;
+    color: black;
+  }
+
+  .footer {
+text-align: left; /* Keep text starting from the left */
+font-size: 14px;
+margin-left: 110px; /* Pushes the entire footer a few centimeters to the right */
+margin-top: 20px;
+}
+
+.footer p{
+  margin-left: -20px;
+  font-size: 14px;
+}
+
+#downloadBtn {
+  display: block;
+  margin: 10px auto 0; /* top margin + center horizontally */
+  background-color: #caa335;  /* soft gold */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#downloadBtn:hover {
+  background-color: #b3912d;  /* darker gold on hover */
+}
